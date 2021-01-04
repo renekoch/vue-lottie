@@ -1,7 +1,7 @@
 {
   "name": "vue-lottie",
   "version": "1.0.0",
-  "description": "lottie component for VueJS",
+  "description": "Lottie component for VueJS",
   "main": "index.js",
   "repository": "git@github.com:renekoch/vue-lottie.git",
   "author": "Rene Koch <renekoch@hotmail.com>",
