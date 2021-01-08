@@ -63,6 +63,7 @@ export default {
   methods: {
     /**
      * @param {Object|null} change
+     * @private
      */
     init(change) {
       if (this.instance) {
