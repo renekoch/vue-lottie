@@ -2,7 +2,7 @@ import Lottie from './Lottie.vue'
 
 export default {
   /**
-   * @param {Object} Vue - Vue instance
+   * @param {Vue} Vue - Vue instance
    * @param {Object} options
    */
   install(Vue, options = {}) {
