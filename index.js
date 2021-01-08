@@ -6,7 +6,6 @@ export default {
    * @param {Object} options
    */
   install(Vue, options = {}) {
-    // components to access to the widgets information.
     Vue.component('vue-lottie', Lottie)
   }
 }
