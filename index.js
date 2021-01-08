@@ -6,6 +6,6 @@ export default {
    * @param {Object} options
    */
   install(Vue, options = {}) {
-    Vue.component('vue-lottie', Lottie)
+    Vue.component(options.tag || 'vue-lottie', Lottie)
   }
 }
