@@ -1,4 +1,4 @@
-import Lottie from './Lottie.vue'
+import Lottie from './Lottie.vue';
 
 export {Lottie};
 export default {
@@ -7,6 +7,6 @@ export default {
    * @param {Object} options
    */
   install(Vue, options = {}) {
-    Vue.component(options.tag || 'vue-lottie', Lottie)
-  }
-}
+    Vue.component(options.tag || 'vue-lottie', Lottie);
+  },
+};
