@@ -38,10 +38,10 @@ export default {
   },
   watch: {
     src(src) {
-      this._init({src});
+      this.init({src});
     },
     animationData(animationData) {
-      this._init({animationData});
+      this.init({animationData});
     },
 
     'instance.isPaused': {
@@ -69,29 +69,32 @@ export default {
      * Start Lottie animation, from current position
      */
     play() {
-      this._call('play');
+      this.call('play');
     },
 
+    /**
+     * Pauses the Lottie animation
+     */
     pause() {
-      this._call('pause');
+      this.call('pause');
     },
 
     togglePause() {
-      this._call('togglePause');
+      this.call('togglePause');
     },
 
     /**
      * Restart the Lottie animation
      */
     replay() {
-      this._call('replay');
+      this.call('replay');
     },
 
     /**
      * Stops the Lottie animation, and set position to 0
      */
     stop() {
-      this._call('stop');
+      this.call('stop');
     },
 
     /**
@@ -99,7 +102,7 @@ export default {
      * @param {boolean} isFrame - defines if first argument is a time based value or a frame based (default false).
      */
     goToAndStop(value, isFrame = false) {
-      this._call('goToAndStop', value, isFrame);
+      this.call('goToAndStop', value, isFrame);
     },
 
     /**
@@ -108,7 +111,7 @@ export default {
      * @param {boolean} isFrame - defines if first argument is a time based value or a frame based (default false).
      */
     goToAndPlay(value, isFrame = false) {
-      this._call('goToAndPlay', value, isFrame);
+      this.call('goToAndPlay', value, isFrame);
     },
 
     /**
@@ -117,7 +120,7 @@ export default {
      * @param {Number} direction - 1 is forward, -1 is reverse.
      */
     setDirection(direction) {
-      this._call('setDirection', direction);
+      this.call('setDirection', direction);
     },
 
     /**
@@ -126,7 +129,7 @@ export default {
      *                                  Default is true.
      */
     setSubframe(useSubFrames = true) {
-      this._call('setSubframe', useSubFrames);
+      this.call('setSubframe', useSubFrames);
     },
 
     /**
@@ -134,7 +137,7 @@ export default {
      * @param {Number} speed - 1 is normal speed.
      */
     setSpeed(speed = 1) {
-      this._call('setSpeed', speed);
+      this.call('setSpeed', speed);
     },
 
     /**
@@ -143,7 +146,7 @@ export default {
      * @param {Boolean} inFrames - If true, returns duration in frames, if false, in seconds.
      */
     getDuration(inFrames = false) {
-      this._call('getDuration', inFrames);
+      this.call('getDuration', inFrames);
     },
 
     /**
@@ -156,21 +159,21 @@ export default {
      *                              it will update values immediately.
      */
     playSegments(segments, forceFlag) {
-      this._call('playSegments(segments', forceFlag);
+      this.call('playSegments(segments', forceFlag);
     },
 
     /**
      * Mutes the Lottie animation
      */
     mute() {
-      this._call('mute');
+      this.call('mute');
     },
 
     /**
      * Unmutes the Lottie animation
      */
     unmute() {
-      this._call('unmute');
+      this.call('unmute');
     },
 
     /**
@@ -178,7 +181,7 @@ export default {
      * @param {Number} val
      */
     setVolume(val) {
-      this._call('setVolume', val);
+      this.call('setVolume', val);
     },
 
     /**
@@ -186,35 +189,37 @@ export default {
      * @return {Number}
      */
     getVolume() {
-      this._call('getVolume');
+      this.call('getVolume');
     },
 
     /**
      * Shows the lottie animation
      */
     show() {
-      this._call('show');
+      this.call('show');
     },
 
     /**
      * Hides the Lottie animation
      */
     hide() {
-      this._call('hide');
+      this.call('hide');
     },
 
     /**
      * Removes Lottie instance and releases allocated memory
      */
     destroy() {
-      this._call('init', {});
+      this.call('init', {});
     },
 
     /**
+     * Initialize the Lottie instance
+     *
      * @param {Object|null} change
      * @private
      */
-    _init(change) {
+    init(change) {
       if (this.instance) {
         this.instance.destroy();
       }
@@ -244,6 +249,7 @@ export default {
         setTimeout(() => instance.play());
       };
 
+      //setup and emit Lottie events
       const events = {
         onComplete: 'complete',
         onLoopComplete: 'loop-complete',
@@ -262,12 +268,12 @@ export default {
      * @return {null|*}
      * @private
      */
-    _call(method, ...args) {
+    call(method, ...args) {
       return this.instance && this.instance[method](...args);
     },
   },
   mounted() {
-    this._init();
+    this.init();
   },
 };
 </script>
